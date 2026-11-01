@@ -13,9 +13,11 @@ ehthumbs_vista.db
 *.swp
 *.swo
 
-# Node / Scratch
+# Node / Scratch / Vercel
+.vercel
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 check_links.js
+
