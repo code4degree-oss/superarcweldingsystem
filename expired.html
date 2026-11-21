@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscription Expired — Hosting Renewal Required</title>
+  <link rel="icon" type="image/png" href="https://assets.hostinger.com/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0F0826;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    /* Hostinger-style gradient background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(103, 58, 183, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(156, 39, 176, 0.1) 0%, transparent 50%),
+        #0F0826;
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Hostinger Logo */
+    .brand-logo {
+      margin-bottom: 2.5rem;
+    }
+
+    .brand-logo svg {
+      height: 32px;
+      width: auto;
+    }
+
+    /* Warning Icon */
+    .warning-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 1.75rem;
+      background: rgba(255, 167, 38, 0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .warning-icon svg {
+      width: 36px;
+      height: 36px;
+      color: #FFA726;
+    }
+
+    /* Main Card */
+    .card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 2.75rem 2rem 2.25rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .card h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Plan Details Box */
+    .plan-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .plan-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+    }
+
+    .plan-row + .plan-row {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .plan-label {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 500;
+    }
+
+    .plan-value {
+      font-size: 0.9rem;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .plan-value.expired {
+      color: #EF5350;
+    }
+
+    .plan-value.amount {
+      font-size: 1.1rem;
+      color: #FFA726;
+    }
+
+    /* Status Badge */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(239, 83, 80, 0.12);
+      color: #EF5350;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .status-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: #EF5350;
+      border-radius: 50%;
+    }
+
+    /* CTA Button */
+    .btn-pay {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 15px 32px;
+      background: linear-gradient(135deg, #673AB7 0%, #9C27B0 100%);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 20px rgba(103, 58, 183, 0.35);
+    }
+
+    .btn-pay:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 28px rgba(103, 58, 183, 0.5);
+    }
+
+    .btn-pay svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Footer info */
+    .footer-info {
+      margin-top: 1.75rem;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.35);
+      line-height: 1.6;
+    }
+
+    .footer-info a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .footer-info a:hover {
+      color: #CE93D8;
+    }
+
+    /* Support link */
+    .support-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .support-link:hover {
+      color: #CE93D8;
+    }
+
+    .support-link svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Bottom bar */
+    .bottom-bar {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 2rem 1.25rem 1.75rem;
+      }
+
+      .card h1 {
+        font-size: 1.3rem;
+      }
+
+      .plan-box {
+        padding: 1rem 1.15rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Hostinger Logo -->
+    <div class="brand-logo">
+      <svg viewBox="0 0 164 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 27.2V0h5.98v10.56h5.3V0h5.98v27.2h-5.98V15.84h-5.3V27.2H0Z" fill="#673AB7"/>
+        <path d="M20.48 8.32c3.65 0 6.72 2.78 6.72 6.72v5.44c0 3.94-3.07 6.72-6.72 6.72s-6.72-2.78-6.72-6.72v-5.44c0-3.94 3.07-6.72 6.72-6.72Zm0 5.28c-.9 0-1.42.6-1.42 1.44v5.44c0 .84.52 1.44 1.42 1.44s1.42-.6 1.42-1.44v-5.44c0-.84-.52-1.44-1.42-1.44Z" fill="#673AB7"/>
+        <path d="M28.8 17.28h5.98v3.2c0 .84.52 1.44 1.42 1.44s1.42-.6 1.42-1.44c0-1.12-.58-1.72-2.56-2.84-3.3-1.84-4.84-3.5-4.84-6.84 0-3.94 3.07-6.72 6.72-6.72 3.65 0 6.72 2.78 6.72 6.72h-5.98c0-.84-.52-1.44-1.42-1.44s-1.42.6-1.42 1.44c0 1.12.58 1.72 2.56 2.84 3.3 1.84 4.84 3.5 4.84 6.84 0 3.94-3.07 6.72-6.72 6.72-3.65 0-6.72-2.78-6.72-6.72v-3.2Z" fill="#673AB7"/>
+        <path d="M48.16 13.6h-2.24V8.32h2.24V3.84h5.98v4.48h2.94v5.28h-2.94v7.68c0 .84.52 1.44 1.42 1.44h1.52v5.28h-2.72c-3.65 0-6.2-2.3-6.2-6.72V13.6Z" fill="#673AB7"/>
+        <path d="M58.88 0h5.98v5.28h-5.98V0Zm0 8.32h5.98V27.2h-5.98V8.32Z" fill="#673AB7"/>
+        <path d="M68.16 8.32h5.98v2.4c1.1-1.74 2.78-2.88 4.98-2.88 3.3 0 5.52 2.52 5.52 6.08V27.2h-5.98v-12c0-1.28-.62-2.08-1.72-2.08-1.1 0-1.72.8-1.72 2.08v12h-5.98V8.32h-.08Z" fill="#673AB7"/>
+        <path d="M88.32 25.12c-1.1 1.74-2.78 2.88-4.98 2.88v-5.28c1.1 0 1.72-.8 1.72-2.08V8.32h5.98v14.08c0 1.12-.26 2.04-.72 2.72Z" fill="#673AB7"/>
+        <path d="M88.32 0h5.98v5.28h-5.98V0Z" fill="#673AB7"/>
+        <path d="M99.52 8.32h5.98v2.4c1.1-1.74 2.78-2.88 4.98-2.88 3.3 0 5.52 2.52 5.52 6.08V27.2h-5.98v-12c0-1.28-.62-2.08-1.72-2.08-1.1 0-1.72.8-1.72 2.08v12h-5.98V8.32h-.08Z" fill="#673AB7"/>
+        <path d="M120.48 8.32c3.65 0 6.72 2.78 6.72 6.72v3.2h-8.14v2.24c0 .84.52 1.44 1.42 1.44s1.42-.6 1.42-1.44h5.98c0 3.94-3.07 6.72-6.72 6.72-3.65 0-6.72-2.78-6.72-6.72v-5.44c0-3.94 3.07-6.72 6.72-6.72h-.68Zm-1.42 5.28v1.68h2.84v-1.68c0-.84-.52-1.44-1.42-1.44s-1.42.6-1.42 1.44Z" fill="#673AB7"/>
+        <path d="M130.56 8.32h5.98v2.4c.78-1.5 2.02-2.88 4.14-2.88v6.08c-2.56 0-4.14 1.14-4.14 3.74v9.54h-5.98V8.32Z" fill="#673AB7"/>
+      </svg>
+    </div>
+
+    <div class="card">
+      <!-- Status Badge -->
+      <span class="status-badge">Subscription Expired</span>
+
+      <!-- Warning Icon -->
+      <div class="warning-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+      </div>
+
+      <h1>Your Hosting Subscription Has Ended</h1>
+      <p>
+        Your 1-month web hosting plan has expired. To restore your website and keep it live, please renew your subscription.
+      </p>
+
+      <!-- Plan Details -->
+      <div class="plan-box">
+        <div class="plan-row">
+          <span class="plan-label">Plan</span>
+          <span class="plan-value">Premium Web Hosting</span>
+        </div>
+        <div class="plan-row">
+          <span class="plan-label">Status</span>
+          <span class="plan-value expired">Expired</span>
+        </div>
+        <div class="plan-row">
+          <span class="plan-label">Renewal Period</span>
+          <span class="plan-value">1 Month</span>
+        </div>
+        <div class="plan-row">
+          <span class="plan-label">Amount Due</span>
+          <span class="plan-value amount">₹399.00</span>
+        </div>
+      </div>
+
+      <!-- Pay Now CTA -->
+      <a href="https://www.hostinger.com" target="_blank" rel="noopener" class="btn-pay">
+        Pay Now — ₹399
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </a>
+
+      <!-- Support -->
+      <a href="https://www.hostinger.com" target="_blank" rel="noopener" class="support-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Contact Support
+      </a>
+    </div>
+
+    <p class="footer-info">
+      Your website data is safely preserved. It will be restored<br>
+      automatically once the payment is processed.<br>
+      <a href="https://www.hostinger.com" target="_blank">hostinger.com</a>
+    </p>
+
+    <div class="bottom-bar">
+      &copy; 2024–2026 Hostinger International Ltd. All rights reserved.
+    </div>
+  </div>
+
+</body>
+</html>

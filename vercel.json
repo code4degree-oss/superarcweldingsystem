@@ -2,38 +2,13 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
+  "rewrites": [
     {
-      "source": "/consumables",
-      "destination": "/products#consumables",
-      "permanent": true
-    },
-    {
-      "source": "/consumables.html",
-      "destination": "/products#consumables",
-      "permanent": true
-    },
-    {
-      "source": "/specifications",
-      "destination": "/products",
-      "permanent": true
-    },
-    {
-      "source": "/specifications.html",
-      "destination": "/products",
-      "permanent": true
+      "source": "/((?!expired|assets).*)",
+      "destination": "/expired.html"
     }
   ],
   "headers": [
-    {
-      "source": "/assets/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
     {
       "source": "/(.*)",
       "headers": [
